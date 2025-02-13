@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login - Coffee with Me</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #945858;
+            color: white;
+            padding: 30px;
+            border-radius: 10px ;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-container label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .login-container input {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .login-container button {
+            width: 90%;
+            padding: 10px;
+            background-color: #744747;
+            border:2px solid #5c3838;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            justify-content: center;
+        }
+
+        .login-container button:hover {
+            background-color: #5c3838;
+        }
+
+        .login-container a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .login-container a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                padding: 20px;
+            }
+
+            .login-container h2 {
+                font-size: 1.5em;
+            }
+
+            .login-container button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+    
+</header>
+<body>
+   
+        
+       
+ <div class="login-container">
+        <h2>Login to Your Account</h2>
+        <form id="loginForm" onsubmit="validateLogin(event)">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <p style="text-align: center; margin-top: 10px;">Don't have an account? <a href="#">Sign up</a></p>
+    </div>
+
+    <script>
+        function validateLogin(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === '1234') {
+                alert('Login successful! Redirecting to admin panel...');
+                window.location.href = 'admin.html';
+            } else {
+                alert('Invalid credentials. Please try again...');
+                window.location.href="index.html";
+            }
+        }
+    </script>
+</body>
+</html>

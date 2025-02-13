@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Explore our coffee shop menu featuring espresso, cappuccino, latte, and more. Visit us for the best coffee experience.">
+    <meta name="keywords" content="Coffee Shop, Espresso, Cappuccino, Latte, Menu">
+    <link rel="icon" href="img/ICON.ico"type="x/x-image">
+
+    <title>Menu - Coffee Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .menu-items 
+        {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        }
+        .details {
+    display: none; /* Hidden by default */
+    padding: 10px;
+    background-color: #ae5757;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: color 0.1s step-end;
+    max-width: 400px;
+    }
+  .media div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.media a {
+    text-decoration: none;
+    color: #f3d7d7;
+    padding: 10px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.media a:hover {
+    background-color: #f4f4f4;
+    color: black;
+}
+header nav li input{
+            display: block;
+            border-radius: 50px;
+            width: 100%;
+            height: 30px;
+            background-color: rgb(75, 41, 41);
+            float:right;
+            border-color: black;
+        }
+
+        #order-summary, #payment {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+     #order-summary h2, #payment h2 {
+    color: #8e6060;
+    }
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #8e6060;
+    color: white;
+    border: none;
+    border-radius: 4px solid ;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+button:hover {
+    background-color: #744747;
+    border-radius: 4px solid white  ;
+}
+  td{
+    gap: 40px;
+
+  }
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li style="float:right;">
+                    <form action="">
+                    <input type="search"placeholder="      search for coffee">
+                </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    
+        <section id="cart-details" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; border:1px solid #ccc; border-radius:8px; z-index:1000;">
+            <h2>Your Cart</h2>
+            <div id="cart-preview">
+                <p>No items in your cart.</p>
+            </div>
+            <button onclick="hideCartDetails()">Close</button>
+            <button onclick="proceedToPayment()">Proceed to Payment</button>
+           
+        </section>
+        <button onclick="showCartDetails()"style="float:right;">View Cart</button>
+        <section id="menu">
+        <h2>Our Menu</h2>
+        <br>
+        <div id="menu-container"class="menu-items">
+            <div class="item">
+                <img src="img/coffee1.jpg" alt="Espresso"loading="lazy">
+                <h3>Espresso</h3>
+                <p>Rs.160</p>
+                <button onclick="addToOrder('Espresso', 160)">Order</button>
+                <button aria-expanded="false" onclick="toggleDetails('espresso-details')">Details</button>
+                <div id="espresso-details" class="details">
+                    <p>A rich, dark coffee brewed by forcing a small amount of nearly boiling water through finely ground coffee beans.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit perspiciatis velit repellendus blanditiis aliquam quidem 
+                      dolore accusantium, quas aliquid alias! Unde quaerat odio illum quia ad nihil eum eligendi hic.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="img/coffee2.jpg" alt="Cappuccino">
+                <h3>Cappuccino</h3>
+                <p>Rs.190</p>
+                <button onclick="addToOrder('Cappuccino', 190)">Order</button>
+                <button onclick="toggleDetails('cappuccino-details')">Details</button>
+                <div id="cappuccino-details" class="details">
+                    <p>A classic espresso with steamed milk and a thick layer of foam, often topped with a sprinkle of cocoa powder.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit perspiciatis velit repellendus blanditiis aliquam quidem 
+                        dolore accusantium, quas aliquid alias! Unde quaerat odio illum quia ad nihil eum eligendi hic.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="img/coffee3.jpg" alt="Latte">
+                <h3>Latte</h3>
+                <p>Rs.200</p>
+                <button onclick="addToOrder('Latte', 200)">Order</button>
+                <button onclick="toggleDetails('latte-details')">Details</button>
+                <div id="latte-details" class="details">
+                    <p>A coffee drink made with espresso and steamed milk, topped with a light layer of foam.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit perspiciatis velit repellendus blanditiis aliquam quidem 
+                        dolore accusantium, quas aliquid alias! Unde quaerat odio illum quia ad nihil eum eligendi hic.</p>
+                </div>
+            </div>
+        </div>
+
+     <div class="menu-items">
+
+        <div class="item">
+            <img src="img/coffee4.jpeg" alt="Americano">
+            <h3>Americano</h3>
+            <p>Rs.180</p>
+            <button onclick="addToOrder('Americano', 180)">Order</button>
+            <button onclick="toggleDetails('americano-details')">Details</button>
+            <div id="americano-details" class="details">
+                <p>An espresso diluted with hot water to create a milder flavor, perfect for those who enjoy a less intense coffee taste.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit perspiciatis velit repellendus blanditiis aliquam quidem 
+                    dolore accusantium, quas aliquid alias! Unde quaerat odio illum quia ad nihil eum eligendi hic.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="img/coffee5.jpg" alt="Mocha">
+            <h3>Mocha</h3>
+            <p>Rs.200</p>
+            <button onclick="addToOrder('Mocha', 200)">Order</button>
+            <button onclick="toggleDetails('mocha-details')">Details</button>
+            <div id="mocha-details" class="details">
+                <p>A delightful blend of espresso, steamed milk, and chocolate syrup, topped with whipped cream.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit perspiciatis velit repellendus blanditiis aliquam quidem 
+                    dolore accusantium, quas aliquid alias! Unde quaerat odio illum quia ad nihil eum eligendi hic.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="img/coffee6.avif" alt="Iced Coffee">
+            <h3>Iced Coffee</h3>
+            <p>Rs.120</p>
+            <button onclick="addToOrder('Iced Coffee', 120)">Order</button>
+            <button onclick="toggleDetails('iced-coffee-details')">Details</button>
+            <div id="iced-coffee-details" class="details">
+                <p>Chilled brewed coffee served over ice, perfect for hot summer days or for a refreshing pick-me-up.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit perspiciatis velit repellendus blanditiis aliquam quidem 
+                    dolore accusantium, quas aliquid alias! Unde quaerat odio illum quia ad nihil eum eligendi hic.</p>
+            </div>
+        </div>
+    </div> 
+    </section>
+
+    
+   
+    
+    <section id="payment" style="display:none;">
+        <h2>Payment</h2>
+        <p>Total Amount: Rs. <span id="payment-total">0</span></p>
+        <form action="process_payment.php" method="POST">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" name="card_number" required>
+    
+            <label for="expiry-date">Expiry Date:</label>
+            <input type="text" id="expiry-date" name="expiry_date" placeholder="MM/YY" required>
+    
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" required>
+    
+            <button type="submit">Pay Now</button>
+        </form>
+    </section>
+
+<div class="footer">
+    <div class="footer-container">
+      <!-- Coffee Section -->
+      <div class="footer-column">
+        <h3>Coffee</h3>
+        <ul>
+          <li><a href="#">Incredible DEALS</a></li>
+          <li><a href="#">Coffee Knowledge </a></li>
+          <li><a href="#">Cold Brew</a></li><br>
+          <li><a href="#">5-Minute Bags</a></li>
+          <li><a href="#">Arabica Beans</a></li>
+          <li><a href="#">Ready to Drink</a></li>
+        </ul>
+      </div>
+  
+      <!-- Curated Section -->
+      <div class="footer-column">
+        <h3>Navigation </h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li><br>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+  
+      <!-- Sleepy Owl Section -->
+      <div class="footer-column">
+        <h3>Address And contact Info</h3>
+        <ul style="text-align: center;">
+          <i class="fa fa-phone" style="font-size:26px">  +91 8676565420</i><br>
+          <i class="fa fa-home"style="font-size:26px">         Cafe with me </i><p>behind sankar class near shivganga medical gopal ,<br>New Usmanpura ,chh Sambhajinagar,Maharashtra</p>
+     
+          
+          
+        </ul>
+      </div>
+    </div>
+  
+    <!-- About Section -->
+    <div class="footer-about">
+      <h3>our Newsletter</h3>
+      <p>Our journey started with three friends with a shared vision. It was simple - introduce people to <em>real good coffee</em>. Today, we’re making high-quality, freshly roasted coffee accessible to everyone with our exclusive products.</p>
+  
+      <!-- Newsletter Section -->
+      <div class="newsletter">
+        <input type="email" placeholder="Email Newsletter">
+        <button>→</button>
+      </div>
+  
+      <!-- Social Media Icons -->
+      <div class="social-icons">
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-envelope"></i></a>
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+    <button class="inquiry-btn"><a class="inquiry-link" href="form.html" target="_blank" rel="noopener noreferrer">Any Inquiry!</a></button>
+
+    <footer>
+        <p>&copy; 2024 Coffee with me . All rights reserved.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+        //payment form
+        
+const orderItems = [];
+let totalPrice = 0;
+
+function addToOrder(itemName, itemPrice) {
+    // Add item to order
+    orderItems.push({ name: itemName, price: itemPrice });
+    totalPrice += itemPrice;
+    alert('Your order is added to cart');
+
+    // Update order summary
+    renderCartPreview();
+}
+
+function renderCartPreview() {
+    const cartPreview = document.getElementById('cart-preview');
+    if (orderItems.length === 0) {
+        cartPreview.innerHTML = '<p>No items in your cart.</p>';
+    } else {
+        cartPreview.innerHTML = orderItems
+            .map(item => `<p>${item.name} - Rs. ${item.price}</p>`)
+            .join('') + `<p><strong>Total: Rs. ${totalPrice.toFixed(2)}</strong></p>`;
+    }
+}
+
+// Event handler for "View Cart" button
+function showCartDetails() {
+    const cartDetails = document.getElementById('cart-details');
+    cartDetails.style.display = 'block';
+}
+
+// Event listener for hiding the cart details
+function hideCartDetails() {
+    const cartDetails = document.getElementById('cart-details');
+    cartDetails.style.display = 'none';
+}
+
+function proceedToPayment() {
+    if (orderItems.length === 0) {
+        alert('Your order is empty. Please add items to your order before proceeding to payment.');
+        return;
+    }
+
+    // Show payment section
+    document.getElementById('payment').style.display = 'block';
+    document.getElementById('payment-total').textContent = totalPrice.toFixed(2);
+
+    // Scroll to payment section
+    document.getElementById('payment').scrollIntoView({ behavior: 'smooth' });
+}
+function proceedToPayment() {
+    if (orderItems.length === 0) {
+        alert('Your order is empty. Please add items to your order before proceeding to payment.');
+        return;
+    }
+    
+    // Show payment section
+    document.getElementById('payment').style.display = 'block';
+    document.getElementById('payment-total').textContent = totalPrice.toFixed(2);
+
+    // Scroll to payment section
+    document.getElementById('payment').scrollIntoView({ behavior: 'smooth' });
+}
+
+
+    </script>
+</body>
+</html>

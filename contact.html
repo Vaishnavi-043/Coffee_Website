@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact - Coffee Shop</title>
+    <link rel="stylesheet" href="styles.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="img/ICON.ico"type="x/x-image">
+
+    <style>
+        .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 60px;
+      width: 80%;
+      max-width: 1200px;
+      background-color:  #ffffff;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      margin: auto;
+    }
+
+
+    .Map {
+      flex: 1;
+      min-height: 400px;
+      background: #744747 url('https://via.placeholder.com/600x400') no-repeat center;
+      background-size: cover;
+      border-radius: 10px;
+    }
+    .Map iframe{
+      width: 100%;
+      height: 300px;
+      border-radius: 10px;
+    }
+    .form {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .form input,
+    .form textarea,
+    .form button {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      background-color: #faf4f4;
+    }
+    .form button {
+      background-color: #b03335;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      
+    }
+
+    .form button:hover {
+      background-color: #ba443a;
+
+    }
+    h3{
+        text-align: center;
+    }
+    .formsize{
+        font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+
+    }
+    header {
+    position: sticky;
+    top: 0;
+    background-color: #8e6060;
+    z-index: 1000;
+}
+      #scrollToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #b64648;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+        }
+        #scrollToTop:hover {
+            background-color: #8e6060;
+        }
+
+        * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* for section before footer*/
+
+    .footer {
+      background-color: #f9f0ed;
+      padding: 40px 20px;
+      
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-column {
+      flex: 1 1 200px;
+      margin: 10px;
+    }
+
+    .footer-column h3 {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      
+    }
+
+    .footer-column ul li {
+      margin: 8px 0;
+    }
+
+    .footer-column ul li a {
+      text-decoration: none;
+      color: #000;
+      transition: color 0.3s;
+      
+    }
+
+    .footer-column ul li a:hover {
+      color: #d5c5c5;
+    }
+    .footer ul{
+      text-align: center;
+    }
+
+    .footer-about {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .footer-about img {
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    .footer-about p {
+      margin: 10px 0;
+      font-size: 0.9em;
+    }
+
+    .newsletter {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    .newsletter input[type="email"] {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px 0 0 4px;
+    }
+
+    .newsletter button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #000;
+      color: #fff;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: #000;
+      font-size: 1.5em;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #ff6347;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+      }
+
+      .footer-column {
+        margin: 20px 0;
+      }
+
+      .footer-about p {
+        text-align: justify;
+      }
+    }
+
+    </style>
+</head>
+<body>
+    <header >
+        <nav>
+          <button id="menuToggle">☰</button>
+            <ul id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="contact">
+            <h1 >Contact Us</h1>
+    </section>     
+    <section class="formsize">
+        <div class="container">
+            
+            <div class="form">
+                <h3>Contact Through</h3>
+                <form id="contactForm" onsubmit="submitForm(event)">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+        
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+        
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+        
+                    <button type="submit">Send</button>
+                </form>
+                <div id="responseMessage"></div>
+            </div>
+          
+            <div class="Map">
+                <h3 >Our Location : </h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30018.293053594778!2d75.31047143955078!3d19.870115100000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdb99b7cb617e6f%3A0xae69fed4eb5085c!2scafe%20with%20me!5e0!3m2!1sen!2sin!4v1732624069377!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        
+     </div>
+       </section>
+             <div class="footer">
+        <div class="footer-container">
+          <!-- Coffee Section -->
+          <div class="footer-column">
+            <h3>Coffee</h3>
+            <ul>
+              <li><a href="#">Incredible DEALS</a></li>
+              <li><a href="#">Coffee Knowledge </a></li>
+              <li><a href="#">Cold Brew</a></li><br>
+              <li><a href="#">5-Minute Bags</a></li>
+              <li><a href="#">Arabica Beans</a></li>
+              <li><a href="#">Ready to Drink</a></li>
+            </ul>
+          </div>
+      
+          <!-- Curated Section -->
+          <div class="footer-column">
+            <h3>Navigation </h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="menu.html">Menu</a></li><br>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+      
+          <!-- Sleepy Owl Section -->
+          <div class="footer-column">
+            <h3>Address And contact Info</h3>
+            <ul style="text-align: center;">
+              <i class="fa fa-phone" style="font-size:26px">  +91 8676565420</i><br>
+              <i class="fa fa-home"style="font-size:26px">         Cafe with me </i><p>behind sankar class near shivganga medical gopal ,<br>New Usmanpura ,chh Sambhajinagar,Maharashtra</p>
+         
+              
+              
+            </ul>
+          </div>
+        </div>
+      
+        <!-- About Section -->
+        <div class="footer-about">
+          <h3>Our Newsletter</h3>
+          <p>Our journey started with three friends with a shared vision. It was simple - introduce people to <em>real good coffee</em>. Today, we’re making high-quality, freshly roasted coffee accessible to everyone with our exclusive products.</p>
+      
+          <!-- Newsletter Section -->
+          <div class="newsletter">
+            <input type="email" placeholder="Email Newsletter">
+            <button>→</button>
+          </div>
+      
+          <!-- Social Media Icons -->
+          <div class="social-icons">
+            <a href="www.instagram.com"target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-envelope"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <button class="inquiry-btn"><a href="" class="inquiry-link"><i class="fa fa-whatsapp"></i></a></button><br><br>
+      <button class="inquiry-btn"><a class="inquiry-link" href="form.html" target="_blank" rel="noopener noreferrer">Any Inquiry!</a></button>
+
+    <footer>
+      
+
+        <p>&copy; 2024 Coffee Shop. All rights reserved.</p>
+    </footer>
+    <button id="scrollToTop" onclick="scrollToTop()">↑</button>
+    <script src="scripts.js"></script>
+    <script>
+      document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            const contactData = { name, email, message };
+
+            // Save to localStorage (simulating backend)
+            const messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
+            messages.push(contactData);
+            localStorage.setItem('contactMessages', JSON.stringify(messages));
+
+            alert('Your message has been sent!');
+            document.getElementById('contactForm').reset();
+        });
+    </script>
+    
+</body>
+</html>

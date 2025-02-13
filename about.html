@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About Us - Coffee Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+        img,iframe{
+            max-width: 90%;
+            height: auto;
+        }
+        .container-about 
+        {
+        max-width: 1200px;
+        margin: auto;
+        padding: 2px 20px;
+        font-size: 20px;
+        }
+        #reviews {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    
+    
+}
+    nav ul .hidden{
+        display:none ;
+    }
+    @media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    .hamburger {
+        display:block;
+        font-size: 1.5rem;
+    }
+    p{
+        margin-bottom: 1rem;
+    }
+   
+}
+.media-navigation {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    padding: 20px;
+}
+.nav-menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-menu ul li {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    background-color: #110c0c;
+}
+
+.nav-menu ul li a {
+    color: #887c7c;
+    font-weight: bold;
+}
+
+.media {
+    background-color: #070505;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.media div {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav >
+            <button  class="hamburger" onclick="toggleMenu()">☰</button>
+            <ul id="menu" class="hidden">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+            <section id="hero1">
+                <div class="hero-content">
+             
+                <h1>Our coffee Making Processs </h1>
+            </section>
+            </div>
+    <section class="container-about">
+            <section class="make">
+                <div>
+                    <h3>Pictorial Represtation </h3>
+                <img src="img/make.webp" alt=""width="28%">
+                <img src="img/make1.webp" alt=""width="25%">
+                <img src="img/make2.jpeg"width="39%" height="70%"alt="">
+            </div>
+            <br>
+            <div>
+                    <h3>Video  Represtation </h3>
+                <iframe src="https://www.youtube.com/embed/_Uf85XZvUqA" width="32%" frameborder="0"title="presentation"allow="accelerometer; autoplay;picture-in-picture;encrypted-media"allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/r1m_SJSsUic" width="32%" frameborder="0"title="presentation"allow="accelerometer; autoplay;picture-in-picture;encrypted-media"allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/_Uf85XZvUqA" width="32%" frameborder="0"title="presentation"allow="accelerometer; autoplay;picture-in-picture;encrypted-media"allowfullscreen></iframe>
+            </div>
+             </section>
+    </section>
+             <section id="about">
+             <h2>About Our Team</h2>
+             <br>
+                    <img style="border-radius: 60%;"src="img/about.jpg" alt="">
+            <p><b>We</b> are a local coffee shop serving the finest brews made with freshly ground beans.
+             Whether you're here for a quick espresso or a relaxing latte, we've got you covered!</p>
+             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cum accusantium explicabo illum nulla quidem delectus ali
+                as, placeat illo molestiae vero iusto perspiciatis necessitatibus cupiditate. Consectetur veniam cum natus ipsum quae.</p>
+             <hr ><br><br>
+             
+             <h3>Customer Reviews</h3><br>
+             <div id="reviews">
+                <table>
+                <td>
+                 <div class="review">
+                     
+                     <img src="img/about.jpg" alt=""width="50%"><br>
+                     <h4>SAkshi Roy</h4>
+                     <p>"The best cappuccino I've ever had! I'll be back for more."</p>
+                 </div>
+                </td>
+                 <td>
+                 <div class="review">
+                    
+                     <img src="img/about1.jpg" alt=""width="60%"><br>
+                     <h4>Sam Patil</h4>
+                     <p>"Amazing atmosphere and friendly staff. The lattes are to die for!"</p>
+                 </div>
+                </td>
+                <td>
+                 <div class="review">
+                    <img src="img/about1.jpg" alt=""width="45%">
+                    <br><h4>Suresh Pattil</h4>
+                    <p>"A cozy spot with great coffee! Highly recommend the iced coffee."</p>
+                </div>
+                </td>
+            </tr>
+               </table> 
+            </div>
+        </section>
+        <section id="about">
+            <h3 style="background-color: rgba(203, 96, 60, 0.733)">Leave a Review</h3>
+            <form id="reviewForm" onsubmit="submitReview(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <br><br>
+                <label for="email">Email ID :</label>
+                <input type="email"required>
+                <br><br>
+                <label for="review">Review:</label>
+                <textarea id="review" name="review" required></textarea>
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <div class="footer">
+            <div class="footer-container">
+              <!-- Coffee Section -->
+              <div class="footer-column">
+                <h3>Coffee</h3>
+                <ul>
+                  <li><a href="#">Incredible DEALS</a></li>
+                  <li><a href="#">Coffee Knowledge </a></li>
+                  <li><a href="#">Cold Brew</a></li><br>
+                  <li><a href="#">5-Minute Bags</a></li>
+                  <li><a href="#">Arabica Beans</a></li>
+                  <li><a href="#">Ready to Drink</a></li>
+                </ul>
+              </div>
+          
+              <!-- Curated Section -->
+              <div class="footer-column">
+                <h3>Navigation </h3>
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="menu.html">Menu</a></li><br>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+          
+              <!-- Sleepy Owl Section -->
+              <div class="footer-column">
+                <h3>Address And contact Info</h3>
+                <ul style="text-align: center;">
+                  <i class="fa fa-phone" style="font-size:26px">  +91 8676565420</i><br>
+                  <i class="fa fa-home"style="font-size:26px">         Cafe with me </i><p>behind sankar class near shivganga medical gopal ,<br>New Usmanpura ,chh Sambhajinagar,Maharashtra</p>
+             
+                  
+                  
+                </ul>
+              </div>
+            </div>
+          
+            <!-- About Section -->
+            <div class="footer-about">
+              <h3>our Newsletter</h3>
+              <p>Our journey started with three friends with a shared vision. It was simple - introduce people to <em>real good coffee</em>. Today, we’re making high-quality, freshly roasted coffee accessible to everyone with our exclusive products.</p>
+          
+              <!-- Newsletter Section -->
+              <div class="newsletter">
+                <input type="email" placeholder="Email Newsletter">
+                <button>→</button>
+              </div>
+          
+              <!-- Social Media Icons -->
+              <div class="social-icons">
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-envelope"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+    
+    
+    
+   
+    <button class="inquiry-btn"><a class="inquiry-link" href="form.html" target="_blank" rel="noopener noreferrer">Any Inquiry!</a></button>
+
+    <footer>
+        <p>&copy; 2024 Coffee with me . All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('hidden');
+    }
+    </script>
+</body>
+</html>

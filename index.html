@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Coffee with Me</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="img/ICON.ico"type="x/x-image">
+    <style>
+        header nav li input{
+            display: block;
+            border-radius: 50px;
+            width: 100%;
+            height: 30px;
+            background-color: rgb(75, 41, 41);
+            float:right;
+            border-color: black;
+        }
+        .Map {
+      flex: 2;
+      min-height: 400px;
+      background: #744747 url('https://via.placeholder.com/600x400') no-repeat center;
+      background-size:cover;
+      border-radius: 10px;
+      max-width: 750px;
+    }
+    .Map iframe{
+      width: 100%;
+      height: 400px;
+      border-radius: 10px;
+      
+    }
+    .container {
+      display:block;
+      flex-wrap: wrap;
+      gap: 60px;
+      width: 80%;
+      max-width:800px;
+      background-color: #8e6060 ;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      margin: auto;
+    }
+    #about img{
+      border-radius: 100px ;
+      max-width: 20%;
+    }
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About </a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">login</a></li>
+                
+                <li style="float:right;">
+                    <form action="">
+                    <input type="search"style="float:right;"placeholder="  search for coffee">
+                </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    
+        <section id="hero">
+        <div class="hero-content">
+            <h1 style="background: linear-gradient(to right,#230d0d,#eb9034);">Bringing Joy One Cup at a Time</h1>
+            <p>Your daily dose of caffeine awaits!</p>
+            <a href="menu.html"><button>See Menu</button></a>
+        </div>
+    </section>
+    </section>
+
+    <section id="home">
+        <div>
+            <i style="font-size: 30px;"class="fa fa-coffee"><h2>Coffee With Me </h2></i>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisibr
+        cing elit. Aspernatur quia nihil non ea temporibus<br> praesen
+        tium quod, excepturi repudiandae culpa! Rem accusamus dolores eveniet hic eaque aut maxime culpa incidunt ratione.</p>
+
+        </div>
+        
+        
+    <section id="scrolling-menu">
+        <h2>Our Menu</h2>
+        <h3>Our Popular Coffee</h3>
+        <div id="menu-item" class="menu-container">
+            <div class="menu-item">
+                <img src="img/coffee1.jpg" alt="Espresso">
+                <h3>Espresso</h3>
+                <p>$3.00</p>
+            </div>
+            <div id="menu-item"class="menu-item">
+                <img src="img/coffee2.jpg" alt="Cappuccino">
+                <h3>Cappuccino</h3>
+                <p>$4.00</p>
+            </div>
+            <div  class="menu-item">
+                <img src="img/coffee3.jpg" alt="Latte">
+                <h3>Latte</h3>
+                <p>$4.50</p>
+            </div>
+            <div class="menu-item">
+                <img src="img/coffee4.jpeg" alt="Americano">
+                <h3>Americano</h3>
+                <p>$3.50</p>
+            </div>
+            <div class="menu-item">
+                <img src="img/coffee5.jpg" alt="Mocha">
+                <h3>Mocha</h3>
+                <p>$4.50</p>
+            </div>
+            <div  class="menu-item">
+                <img src="img/coffee6.avif" alt="Iced Coffee">
+                <h3>Iced Coffee</h3>
+                <p>$4.00</p>
+            </div>
+            <div class="menu-item">
+                <img src="img/coffee7.jpg" alt="Flat White">
+                <h3>Flat White</h3>
+                <p>$4.00</p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h3>Our Proficiencies </h3>
+        <div>
+			<div>
+				<ul>
+				<li>Coffee knowledge</li>
+				<li>Customer Service</li>
+				<li>Team Work </li><br><br>
+            <li>Multitasking</li>
+         <li>Cash Management</li>
+           <li>Attention to detail</li>
+				</ul>   
+			</div>
+			<div>
+    </section>
+    <div class="container">
+    
+      <section id="about">
+        <h2>About Us</h2>
+        <img src="img/about.jpg" alt=""width="30%">
+        <p>We serve the best coffee in town, made from freshly ground beans.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing  Sint, nostrum eaque<br> aspernatur quia 
+        incidunt qui placeat necessitatibus laudantium iure, itaque hic repellendus dicta nisi illo excepturi facilis vel option</p>
+    </section>
+    </div><br><br>
+
+    <div class="container">
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm" onsubmit="submitForm(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+        <div id="responseMessage"></div>
+    </section>
+<br>
+    
+    <div class="Map">
+        <h3 >Our Location : </h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30018.293053594778!2d75.31047143955078!3d19.870115100000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdb99b7cb617e6f%3A0xae69fed4eb5085c!2scafe%20with%20me!5e0!3m2!1sen!2sin!4v1732624069377!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    </div>
+<div class="footer">
+    <div class="footer-container">
+      <!-- Coffee Section -->
+      <div class="footer-column">
+        <h3>Coffee</h3>
+        <ul>
+          <li><a href="#">Incredible DEALS</a></li>
+          <li><a href="#">Coffee Knowledge </a></li>
+          <li><a href="#">Cold Brew</a></li><br>
+          <li><a href="#">5-Minute Bags</a></li>
+          <li><a href="#">Arabica Beans</a></li>
+          <li><a href="#">Ready to Drink</a></li>
+        </ul>
+      </div>
+  
+      <!-- Curated Section -->
+      <div class="footer-column">
+        <h3>Navigation </h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li><br>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+  
+      <!-- Sleepy Owl Section -->
+      <div class="footer-column">
+        <h3>Address And contact Info</h3>
+        <ul style="text-align: center;">
+          <i class="fa fa-phone" style="font-size:26px">  +91 8676565420</i><br>
+          <i class="fa fa-home"style="font-size:26px">         Cafe with me </i><p>behind sankar class near shivganga medical gopal ,<br>New Usmanpura ,chh Sambhajinagar,Maharashtra</p>
+     
+          
+          
+        </ul>
+      </div>
+    </div>
+  
+    <!-- About Section -->
+    <div class="footer-about">
+      <h3>our Newsletter</h3>
+      <p>Our journey started with three friends with a shared vision. It was simple - introduce people to <em>real good coffee</em>. Today, we’re making high-quality, freshly roasted coffee accessible to everyone with our exclusive products.</p>
+  
+      <!-- Newsletter Section -->
+      <div class="newsletter">
+        <input type="email" placeholder="Email Newsletter">
+        <button>→</button>
+      </div>
+  
+      <!-- Social Media Icons -->
+      <div class="social-icons">
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-envelope"></i></a>
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+    <button class="inquiry-btn"><a class="inquiry-link" href="form.html" target="_blank" rel="noopener noreferrer">Any Inquiry!</a></button>
+
+    <footer>
+        <p>&copy; 2024 Coffee with me . All rights reserved.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patment Section -Coffe with Me </title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #order-summary, #payment {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+     #order-summary h2, #payment h2 {
+    color: #8e6060;
+    }
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #8e6060;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+button:hover {
+    background-color: #744747;
+}
+
+    </style>
+   
+</head>
+<body>
+    <header>
+        Coffee With Me 
+    </header>
+    <!-- Order Summary Section -->
+<section id="order-summary">
+    <h2>Order Summary</h2>
+    <div id="order-items">
+        <p>No items in the order.</p>
+    </div>
+    <h3>Total: Rs. <span id="total-price">0</span></h3>
+    <button onclick="proceedToPayment()">Proceed to Payment</button>
+</section>
+
+</section>
+<link rel="stylesheet" href="scripts.js">
+<script>
+    //payment form
+
+const orderItems = [];
+let totalPrice = 0;
+
+function addToOrder(itemName, itemPrice) {
+    // Add item to order
+    orderItems.push({ name: itemName, price: itemPrice });
+    totalPrice += itemPrice;
+
+    // Update order summary
+    renderOrderSummary();
+}
+
+function renderOrderSummary() {
+    const orderItemsContainer = document.getElementById('order-items');
+    const totalPriceElement = document.getElementById('total-price');
+
+    if (orderItems.length === 0) {
+        orderItemsContainer.innerHTML = '<p>No items in the order.</p>';
+    } else {
+        orderItemsContainer.innerHTML = orderItems
+            .map(item => `<p>${item.name} - Rs. ${item.price}</p>`)
+            .join('');
+    }
+
+    totalPriceElement.textContent = totalPrice.toFixed(2);
+}
+
+function proceedToPayment() {
+    if (orderItems.length === 0) {
+        alert('Your order is empty. Please add items to your order before proceeding to payment.');
+        return;
+    }
+
+    // Show payment section
+    document.getElementById('payment').style.display = 'block';
+    document.getElementById('payment-total').textContent = totalPrice.toFixed(2);
+
+    // Scroll to payment section
+    document.getElementById('payment').scrollIntoView({ behavior: 'smooth' });
+}
+
+
+
+</script>
+</body>
+</html>

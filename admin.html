@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #8e6060;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, textarea, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #8e6060;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #744747;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+
+        <!-- Add Menu Item Section -->
+        <section>
+            <h2>Add Menu Item</h2>
+            <form id="addMenuItemForm">
+                <label for="itemName">Item Name:</label>
+                <input type="text" id="itemName" name="itemName" required>
+
+                <label for="itemPrice">Item Price:</label>
+                <input type="number" id="itemPrice" name="itemPrice" required>
+
+                <label for="itemImage">Item Image URL:</label>
+                <input type="url" id="itemImage" name="itemImage">
+
+                <button type="submit">Add Item</button>
+            </form>
+        </section>
+
+        <!-- Manage Menu Items -->
+        <section>
+            <h2>Manage Menu Items</h2>
+            <div id="menuList">
+            <!-- List of menu items dynamically populated -->
+                <p>No menu items found.</p>
+            </div>
+        </section>
+
+        <!-- Contact Messages -->
+        <section>
+            <h2>Contact Messages</h2>
+            <div id="contactMessages">
+                <!-- List of contact messages dynamically populated -->
+                <p>No messages received yet.</p>
+            </div>
+        </section>
+    </div>
+
+    <script>    
+    const isLoggedIn = confirm("you have logedIn into the admin panel. Click OK for access.");
+
+        if (!isLoggedIn) {
+            alert("Access denied. Redirecting to home page.");
+            window.location.href = "index.html" ; // Replace with your home page URL
+            }
+        // else{
+          //      alert("fill the given credential details for login purpose..");
+            //    window.location.href="login.html";
+            
+            // Sample script to handle form submissions 
+        document.getElementById('addMenuItemForm').addEventListener('submit', function(event) { 
+            event.preventDefault();     
+            const itemName = document.getElementById('itemName').value;
+            const itemPrice = document.getElementById('itemPrice').value;
+            const itemImage = document.getElementById('itemImage').value;
+            if (itemName && itemPrice && itemImage) {
+                
+          
+            alert(`Menu item added: ${itemName} - $${itemPrice} and ${itemImage}` );
+            }
+            else{
+                alert(`Invalid ${itemName} - $${itemPrice}  `);
+            }
+        
+            // TODO: Implement backend API to save the menu item
+            
+        }); 
+        
+        // Simulated loading of menu items
+        const menuList = document.getElementById('menuList');
+        let menuItems = [
+            { id: 1, name: 'Espresso', price: 3.00, image: '' },
+            { id: 2, name: 'Cappuccino', price: 4.00, image: '' }
+        ];
+
+        function renderMenuItems() {
+            if (menuItems.length === 0) {
+                menuList.innerHTML = '<p>No menu items found.</p>';
+                return;
+            }
+
+        menuList.innerHTML = '';
+        menuItems.forEach(item=> {
+            const menuList = document.getElementById('menuList');
+            const menuItem=document.createElement('div');
+            menuItem.className='menu-item';
+            menuItem.innerHTML = `
+                 <span>${item.name} - $${item.price.toFixed(2)}</span>
+                    <div>
+                        <button onclick="editMenuItem(${item.id})">Edit</button>
+                        <button onclick="deleteMenuItem(${item.id})">Delete</button>
+                    </div>
+            `;
+            menuList.appendChild(menuItem);
+        });
+    }
+    //editing   menu iteams 
+    function deleteMenuItem(id) {
+            menuItems = menuItems.filter(item => item.id !== id);
+            renderMenuItems();
+        }
+
+        function editMenuItem(id) {
+            const item = menuItems.find(item => item.id === id);
+            if (item) {
+                const newName = prompt('Enter new name:', item.name);
+                const newPrice = parseFloat(prompt('Enter new price:', item.price));
+                if (newName && !isNaN(newPrice)) {
+                    item.name = newName;
+                    item.price = newPrice;
+                    renderMenuItems();
+                } else {
+                    alert('Invalid input. Changes not saved.');
+                }
+            }
+        }
+        document.getElementById('addMenuItemForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const itemName = document.getElementById('itemName').value;
+            const itemPrice = parseFloat(document.getElementById('itemPrice').value);
+            const itemImage = document.getElementById('itemImage').value;
+
+            if (itemName && !isNaN(itemPrice)) {
+                menuItems.push({
+                    id: Date.now(),
+                    name: itemName,
+                    price: itemPrice,
+                    image: itemImage
+                });
+
+                renderMenuItems();
+                alert('Menu item added successfully!');
+            } else {
+                alert('Please provide valid inputs.');
+            }
+
+            document.getElementById('addMenuItemForm').reset();
+        });
+
+        // Initial render
+        renderMenuItems();
+
+
+        //contact messages changes
+
+        
+    function loadContactMessages() {
+        const contactMessages = JSON.parse(localStorage.getItem('contactMessages')) || [];
+        const contactMessagesContainer = document.getElementById('contactMessages');
+
+        if (contactMessages.length === 0) {
+            contactMessagesContainer.innerHTML = '<p>No messages received yet.</p>';
+            return;
+        }
+
+        contactMessagesContainer.innerHTML = '';
+        contactMessages.forEach((message, index) => {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'contact-message';
+            messageDiv.innerHTML = `
+                <p><strong>Name:</strong> ${message.name}</p>
+                <p><strong>Email:</strong> ${message.email}</p>
+                <p><strong>Message:</strong> ${message.message}</p>
+                <button onclick="deleteMessage(${index})">Delete</button>
+                <hr>
+            `;
+            contactMessagesContainer.appendChild(messageDiv);
+        });
+    }
+
+    function deleteMessage(index) {
+        const contactMessages = JSON.parse(localStorage.getItem('contactMessages')) || [];
+        contactMessages.splice(index, 1);
+        localStorage.setItem('contactMessages', JSON.stringify(contactMessages));
+        loadContactMessages();
+    }
+
+    // Load messages on page load
+    document.addEventListener('DOMContentLoaded', loadContactMessages);
+
+
+    </script>
+</body>
+</html>
